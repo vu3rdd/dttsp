@@ -1,0 +1,19 @@
+#!/bin/sh
+
+if [ ! -d ./IPC ]; then mkdir ./IPC; fi
+
+(cd ./IPC
+  if [ ! -p SDR-1000-0-commands.fifo ]; then
+    mkfifo SDR-1000-0-commands.fifo
+  fi
+
+  if [ ! -p SDR-1000-0-meter.fifo ]; then
+    mkfifo SDR-1000-0-meter.fifo
+  fi
+
+  if [ ! -p SDR-1000-0-spec.fifo ]; then
+    mkfifo SDR-1000-0-spec.fifo
+  fi)
+
+ls -ld IPC
+ls -l IPC

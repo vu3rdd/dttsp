@@ -1,0 +1,72 @@
+// [TRX] indicates optional arg (RX or TX), RX default
+// T|F indicates TRUE or FALSE
+// 
+// If first char of command is '-', eg
+// -setNR ON
+// command is not echoed to log output.
+// 
+// setFilter low-freq high-freq TRX
+// setMode mode [TRX]	// mode = USB, LSB, CWL, CWU, etc.
+// setOsc freq [TRX]	// freq in Hz (float)
+// setSampleRate rate	// Hz (float)
+// setNR T|F		// on/off, RX only
+// setANF T|F		// on/off, RX only
+// setNB T|F		// on/off, RX only
+// setBIN T|F		// binaural mode, on/off, RX only
+// setNBvals thresh	// float, RX only
+// setfixedAGC gain [TRX]	// float
+// setRXAGC T|F		// on/off
+// setRXAGCCompression lev	// float
+// setRXAGCHang dur	// float
+// setRXAGCLimit lim	// float
+// setTXAGC T|F		// on/off
+// setTXAGCCompression lev	// float
+// setTXAGCHang dur	// float
+// setTXAGCLimit lim	// float
+// setTXSpeechCompression T|F	// on/off
+// setTXSpeechCompressionGain gain	// float
+// setRXEQ <bandspec>	// f0 dB0 f1 dB1 f2 dB2 ... fN
+// setTXEQ <bandspec>	// f0 dB0 f1 dB1 f2 dB2 ... fN
+// 	// typical:
+// 	// 0 dB1 75 dB2 150 dB3 300 dB4 600 dB5 1200 dB6 2000 dB7 2800 dB8 3600
+// 	// approximates W2IHY bandcenters
+// setRXAGC mode		// mode = agcOFF, agcSLOW, etc.
+// setANFvals taps delay gain leak	// int, int, float, float, RX only
+// setNRvals taps delay gain leak	// int, int, float, float, RX only
+// setcorrectIQ phase gain	// int, int
+// setcorrectIQphase phase	// int
+// setcorrectIQgain gain	// int
+// setSquelch lev		// float, gain, RX only; default -30dB
+// setSquelchSt T|F	// on/off, RX only
+// setTRX trx		// trx = RX|TX
+// setRunState state	// RUN_MUTE, RUN_PASS, RUN_PLAY
+// setRXPreScl T|F		// on/off
+// setRXPreSclVal valQ	// dB
+// setTXPreScl T|F		// on/off
+// setTXPreSclVal valQ	// dB
+// setRXPostScl T|F	// on/off
+// setRXPostSclVal valQ	// dB
+// setTXPostScl T|F	// on/off
+// setTXPostSclVal valQ	// dB
+// setSWCH trx [zap]	// trx = RX|TX, int (always zaps at least 1)
+// setSpotToneVals gain freq rise fall // dB, Hz, msec, msec [-12, 700, 5, 5]
+// setSpotTone T|F		// turn on, off
+// setFinished		// shutdown gracefully
+// setRXListen rx		// tell receiver rx to listen to commands to follow
+// setRXOn [rx]		// turn currently listening receiver on, or receiver rx
+// setRXOff [rx]		// turn currently listening receiver off, or receiver rx
+// setRXPan pos		// set azimuth for currently listening receiver to pos (0...1)
+// setAuxMixGain [gain [trx]]	// set mixing level for aux inputs
+// setAuxMixSt [flag [trx]]	// set aux input mix on/off
+// setCompandSt [T|F [trx]]	// *** NB *** trx dflt TX!!!
+// setCompand fac [trx]	// probably > 0 for RX, < 0 for TX
+// setMeterType type [trx] // set meter type for trx, default rx
+// 			// types: SIG, AVG, REAL, IMAG; default SIG
+// setSpectrumType [type [scale [rx]]] // set spectrum type, scale, which rx
+// 			// types: SEMI_RAW, PRE_FILT, POST_FILT (dflt POST)
+// 			// scale: PWR, MAG (dflt PWR)
+// 			// which rx dflt 0
+// =========================================================================
+// reqMeter [label]	// sends entire rx or tx meter block to METERPATH
+// reqSpectrum [label]	// sends current spec snapshot to SPECPATH
+// 

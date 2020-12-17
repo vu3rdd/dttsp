@@ -1,0 +1,37 @@
+========================================================================
+Simple stuff.
+
+To use, run python interactively. Then
+
+>>> execfile("sdr1k-setup.py")
+
+to get the interface started.
+
+To set the frequency, do 
+
+>>> setDDSFreq(14.077)
+
+To toggle the mute relay,
+
+>>> setMuteRelay(not getMuteRelay())
+
+etc.
+
+To shut down,
+
+>>> closeRig()
+
+and exit python. (The startup script, which is crude and will be
+replaced shortly, does an openRig("/dev/parport0")
+========================================================================
+
+To build:
+
+There is a simple Makefile that does just the following --
+
+swig -python hardware.i
+gcc -fPIC -I. -I/usr/include/python -c hardware_wrap.c
+gcc -fPIC -I. -c hardware.c
+ld -shared hardware.o hardware_wrap.o -o _sdr1khw.so
+
+Ready to go.

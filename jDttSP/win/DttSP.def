@@ -1,0 +1,5 @@
+LIBRARY    DttSP
+EXPORTS
+   audio_callback	    @1
+   setup_sdr			@2
+   destroy_sdr			@3
